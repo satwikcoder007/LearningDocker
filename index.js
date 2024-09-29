@@ -26,7 +26,7 @@ const addUser = async(req,res)=>{
     
 }
 app.get("/", (req, res) => {
-    res.status(200).json({ data: "updated hello from server" });
+    res.status(200).json({ data: "hello from server" });
 });
 
 app.post("/test",addUser);

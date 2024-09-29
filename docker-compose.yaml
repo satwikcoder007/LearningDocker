@@ -1,0 +1,28 @@
+version: '3.8'
+name: dockertut
+
+services:
+  nodeserver:
+    image: satwikcoder007/my-node-app
+    container_name: dockerserver
+    environment:
+      - PORT=5050
+      - MONGO_URL=mongodb://admin:password@mongodb
+    ports:
+      - 5050:5050
+    depends_on:
+      - mongodb
+    volumes:
+      - ./:/app  
+  
+
+  mongodb:
+    image: mongo
+    container_name: dockerdb
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    
+      
